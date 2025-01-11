@@ -1,5 +1,6 @@
 import { useId } from "react";
 import CustomInput from "../CustomInput/CustomInput";
+import CustomButton from "../CustomButton/CustomButton";
 
 const RegisterForm = (): React.ReactNode => {
   const nameInputId = useId();
@@ -29,6 +30,11 @@ const RegisterForm = (): React.ReactNode => {
         minLength={8}
         required
         onChange={(e) => {}}
+      />
+      <CustomButton
+        title="submit"
+        type="submit"
+        className=" bg-transparent border-2 bg-primary text-light"
       />
     </form>
   );
