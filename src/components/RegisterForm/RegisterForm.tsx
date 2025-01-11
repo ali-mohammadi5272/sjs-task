@@ -1,7 +1,7 @@
 import { useId } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 
-const LoginForm = (): React.ReactNode => {
+const RegisterForm = (): React.ReactNode => {
   const nameInputId = useId();
   const emailInputId = useId();
   const passwordInputId = useId();
@@ -34,4 +34,4 @@ const LoginForm = (): React.ReactNode => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
