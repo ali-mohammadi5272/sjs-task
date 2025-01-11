@@ -7,7 +7,7 @@ const RegisterForm = (): React.ReactNode => {
   const passwordInputId = useId();
 
   return (
-    <form action="">
+    <form action="" className="space-y-6">
       <CustomInput
         id={nameInputId}
         label="Name"
