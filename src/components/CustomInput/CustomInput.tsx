@@ -8,6 +8,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   inputClassName,
   minLength,
   required,
+  value,
   onChange,
 }) => {
   return (
@@ -21,6 +22,7 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
         className={`block w-full bg-gray-50 p-2 text-xl border-2 border-transparent rounded-md outline-none valid:border-green-600 valid:text-green-500 invalid:border-red-600 invalid:text-red-500 ${inputClassName}`}
         minLength={minLength}
         required={required}
+        value={value}
         onChange={onChange}
       />
     </div>

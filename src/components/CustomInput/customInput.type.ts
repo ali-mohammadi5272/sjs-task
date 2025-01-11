@@ -6,6 +6,7 @@ interface CustomInputPropsType {
   inputClassName?: string;
   minLength?: number;
   required?: boolean;
+  value?: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
