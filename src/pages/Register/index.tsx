@@ -8,7 +8,7 @@ const RegisterPage = (): React.ReactNode => {
       <Container>
         <h1 className="text-center text-5xl font-bold">Register Page</h1>
         <RegisterForm />
-        <div className="text-lg mb-14 space-x-2">
+        <div className="text-lg mb-14 space-x-2 text-center py-4">
           <span className="text-[#5C4529]">Already registered?</span>
           <Link className="text-blue-400 font-medium" to="/auth/login">
             Log in
