@@ -6,4 +6,9 @@ const setCookie = (cookie: CookieType) => {
   document.cookie = `${key}=${value}; max-age=${maxAge}; path=${path}`;
 };
 
-export { setCookie };
+const getCookie = (key: string | number): string => {
+  const cookie = document.cookie.split(`${key}=`)[1];
+  return cookie;
+};
+
+export { setCookie, getCookie };
