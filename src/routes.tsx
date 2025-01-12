@@ -2,9 +2,6 @@ import { RouteObject } from "react-router-dom";
 import AuthLayout from "./layouts/Auth/AuthLayout";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
-import MainLayout from "./layouts/Main/MainLayout";
-import HomePage from "./pages/Home";
-import DashboardPage from "./pages/Dashboard";
 
 const routes: RouteObject[] = [
   {
@@ -18,20 +15,6 @@ const routes: RouteObject[] = [
       {
         path: "login",
         element: <LoginPage />,
-      },
-    ],
-  },
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "/dashboard",
-        element: <DashboardPage />,
       },
     ],
   },
