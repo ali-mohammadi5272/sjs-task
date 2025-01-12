@@ -1,7 +1,10 @@
 import Container from "../../components/Container/Container";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const LoginPage = (): React.ReactNode => {
+  usePageTitle("Login");
+
   return (
     <main>
       <Container>
