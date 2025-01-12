@@ -1,4 +1,6 @@
 import { CookieType } from "../types/cookie";
+import { tokens } from "./constants";
+import { NavigateFunction } from "react-router-dom";
 
 const setCookie = (cookie: CookieType) => {
   const { key, value, maxAge, path } = cookie;
@@ -20,4 +22,10 @@ const removeCookie = (key: string | number): void => {
   });
 };
 
-export { setCookie, getCookie, removeCookie };
+const logout = (navigate: NavigateFunction) => {
+  removeCookie(tokens.REFRESH_TOKEN);
+  removeCookie(tokens.ACCESS_TOKEN);
+  navigate("/auth/login", { replace: true });
+};
+
+export { setCookie, getCookie, removeCookie, logout };
