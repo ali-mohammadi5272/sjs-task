@@ -23,7 +23,9 @@ const MainLayout = (): React.ReactNode => {
         withCredentials: true,
       }
     );
-    setUser(response.data);
+    if (response.status === 200) {
+      setUser(response.data);
+    }
   };
 
   useEffect(() => {
