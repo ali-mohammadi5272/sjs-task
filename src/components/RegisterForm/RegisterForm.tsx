@@ -35,7 +35,6 @@ const RegisterForm = (): React.ReactNode => {
         />
         <CustomButton
           title="submit"
-          type="submit"
           className="border-2 bg-primary text-light"
         />
       </form>
