@@ -4,17 +4,18 @@ import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
 
 const LoginForm = (): React.ReactNode => {
-  const emailInputId = useId();
+  const userNameInputId = useId();
   const passwordInputId = useId();
 
   return (
     <>
       <form action="" className="space-y-6">
         <CustomInput
-          id={emailInputId}
-          type="email"
-          label="Email"
+          id={userNameInputId}
+          type="text"
+          label="Username"
           required
+          value={formData.username}
           onChange={(e) => {}}
         />
         <CustomInput
@@ -23,6 +24,7 @@ const LoginForm = (): React.ReactNode => {
           label="password"
           minLength={8}
           required
+          value={formData.password}
           onChange={(e) => {}}
         />
         <CustomButton
