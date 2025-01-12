@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { authLayoutRoutePattern } from "./../../utils/patterns";
+import { getCookie } from "../../utils/helperFunctions";
+import { tokens } from "../../utils/constants";
 import {
   Location,
   NavigateFunction,
@@ -13,11 +15,20 @@ const AuthLayout = (): React.ReactNode => {
   const location: Location = useLocation();
 
   useEffect(() => {
-    const isOnlyAuthLayoutRoute: boolean = authLayoutRoutePattern.test(
-      location.pathname
-    );
-    if (isOnlyAuthLayoutRoute) {
-      navigate("/auth/login", { replace: true });
+    const refreshToken: string | null = getCookie(tokens.REFRESH_TOKEN);
+    const isUserLoggedIn = !!refreshToken;
+
+    if (isUserLoggedIn) {
+      navigate("/dashboard", { replace: true });
+    }
+    else {
+      const isOnlyAuthLayoutRoute: boolean = authLayoutRoutePattern.test(
+        location.pathname
+      );
+      
+      if (isOnlyAuthLayoutRoute) {
+        navigate("/auth/login", { replace: true });
+      }
     }
   }, []);
 
