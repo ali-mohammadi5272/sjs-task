@@ -28,7 +28,7 @@ const LoginForm = (): React.ReactNode => {
         <CustomButton
           title="submit"
           type="submit"
-          className=" bg-transparent border-2 bg-primary text-light"
+          className="border-2 bg-primary text-light"
         />
       </form>
       <div className="text-lg mb-14 space-x-2 text-center py-4">
