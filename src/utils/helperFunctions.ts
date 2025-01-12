@@ -11,4 +11,13 @@ const getCookie = (key: string | number): string => {
   return cookie;
 };
 
-export { setCookie, getCookie };
+const removeCookie = (key: string | number): void => {
+  setCookie({
+    key,
+    value: "",
+    maxAge: 0,
+    path: "/",
+  });
+};
+
+export { setCookie, getCookie, removeCookie };
