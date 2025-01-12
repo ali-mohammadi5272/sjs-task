@@ -44,7 +44,7 @@ const Navbar = (): React.ReactNode => {
       <Container>
         <div className="flex justify-between items-center px-5">
           <section className="w-[20%]">
-            <h3 className="text-danger font-semibold">{user.username}</h3>
+            <h3 className="text-danger font-semibold">{user?.username}</h3>
           </section>
           <section className="flex w-[60%]">
             {links.map((link) => (
