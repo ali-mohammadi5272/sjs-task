@@ -3,6 +3,7 @@ import AuthLayout from "./layouts/Auth/AuthLayout";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import MainLayout from "./layouts/Main/MainLayout";
+import HomePage from "./pages/Home";
 
 const routes: RouteObject[] = [
   {
@@ -22,7 +23,12 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <MainLayout />,
-    children: [],
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
   },
 ];
 
