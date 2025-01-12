@@ -3,4 +3,11 @@ const tokens = {
   REFRESH_TOKEN: "REFRESH_TOKEN",
 };
 
-export { tokens };
+const messages = {
+  LOGIN: {
+    SUCCESS: "Login successfully :))",
+    ERR: "Internal Server Error !!",
+  },
+};
+
+export { tokens, messages };
