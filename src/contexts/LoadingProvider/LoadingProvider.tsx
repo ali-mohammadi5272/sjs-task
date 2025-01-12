@@ -5,10 +5,9 @@ import {
   LoadingProviderPropsType,
 } from "./loadingProvider.type";
 
-export const LoadingContext = createContext<LoadingContextType>({
-  isLoading: false,
-  setIsLoading: () => {},
-});
+export const LoadingContext = createContext<LoadingContextType>(
+  {} as LoadingContextType
+);
 
 const LoadingProvider: React.FC<LoadingProviderPropsType> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
