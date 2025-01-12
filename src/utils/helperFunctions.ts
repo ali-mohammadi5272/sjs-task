@@ -1,6 +1,8 @@
+import Swal, { SweetAlertResult } from "sweetalert2";
 import { CookieType } from "../types/cookie";
 import { tokens } from "./constants";
 import { NavigateFunction } from "react-router-dom";
+import { SweetAlertType } from "../types/sweetalert";
 
 const setCookie = (cookie: CookieType) => {
   const { key, value, maxAge, path } = cookie;
@@ -28,4 +30,19 @@ const logout = (navigate: NavigateFunction) => {
   navigate("/auth/login", { replace: true });
 };
 
-export { setCookie, getCookie, removeCookie, logout };
+const showAlert = ({
+  title,
+  text,
+  icon,
+  showCancelButton,
+}: SweetAlertType): Promise<SweetAlertResult<boolean | undefined>> => {
+  return Swal.fire<boolean>({
+    title,
+    text,
+    icon,
+    showCancelButton,
+    reverseButtons: true,
+  });
+};
+
+export { setCookie, getCookie, removeCookie, logout, showAlert };
