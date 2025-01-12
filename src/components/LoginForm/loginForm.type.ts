@@ -3,4 +3,16 @@ interface FormDataType {
   password: string;
 }
 
-export type { FormDataType };
+interface LoginResponseType {
+  id: number;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  gender: "female" | "male";
+  image: string;
+  accessToken: string;
+  refreshToken: string;
+}
+
+export type { FormDataType, LoginResponseType };
