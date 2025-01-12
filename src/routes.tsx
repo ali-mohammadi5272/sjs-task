@@ -5,6 +5,7 @@ import LoginPage from "./pages/Login";
 import MainLayout from "./layouts/Main/MainLayout";
 import HomePage from "./pages/Home";
 import DashboardPage from "./pages/Dashboard";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 const routes: RouteObject[] = [
   {
@@ -23,7 +24,11 @@ const routes: RouteObject[] = [
   },
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <AuthProvider>
+        <MainLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         index: true,
