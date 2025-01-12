@@ -8,6 +8,11 @@ const messages = {
     SUCCESS: "Login successfully :))",
     ERR: "Internal Server Error !!",
   },
+  LOGOUT: {
+    CONFIRMATION: "Log out from App ?",
+    SUCCESS: "Logged out successfully :))",
+    ERR: "Internal Server Error !!",
+  },
 };
 
 export { tokens, messages };
