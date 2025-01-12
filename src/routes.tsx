@@ -4,6 +4,7 @@ import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import MainLayout from "./layouts/Main/MainLayout";
 import HomePage from "./pages/Home";
+import DashboardPage from "./pages/Dashboard";
 
 const routes: RouteObject[] = [
   {
@@ -27,6 +28,10 @@ const routes: RouteObject[] = [
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/dashboard",
+        element: <DashboardPage />,
       },
     ],
   },
