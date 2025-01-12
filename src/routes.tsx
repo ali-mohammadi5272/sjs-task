@@ -6,6 +6,7 @@ import MainLayout from "./layouts/Main/MainLayout";
 import HomePage from "./pages/Home";
 import DashboardPage from "./pages/Dashboard";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const routes: RouteObject[] = [
   {
@@ -26,7 +27,9 @@ const routes: RouteObject[] = [
     path: "/",
     element: (
       <AuthProvider>
-        <MainLayout />
+        <ProtectedRoute>
+          <MainLayout />
+        </ProtectedRoute>
       </AuthProvider>
     ),
     children: [
