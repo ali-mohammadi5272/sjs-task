@@ -26,35 +26,39 @@ const LoginForm = (): React.ReactNode => {
 
     setIsLoading(true);
 
-    const response = await axios.post<LoginResponseType>(
-      "/auth/login",
-      formData
-    );
+    try {
+      const response = await axios.post<LoginResponseType>(
+        "/auth/login",
+        formData
+      );
 
-    if (response.status !== 200) {
+      if (response.status !== 200) {
+        toast.error(messages.LOGIN.ERR);
+        return;
+      }
+
+      toast.success(messages.LOGIN.SUCCESS);
+
+      setCookie({
+        key: tokens.ACCESS_TOKEN,
+        value: response.data.accessToken,
+        maxAge: 60 * 60,
+        path: "/",
+      });
+
+      setCookie({
+        key: tokens.REFRESH_TOKEN,
+        value: response.data.refreshToken,
+        maxAge: 60 * 60 * 24 * 30,
+        path: "/",
+      });
+
+      navigate("/dashboard", { replace: true });
+    } catch (err) {
       toast.error(messages.LOGIN.ERR);
-      return;
+    } finally {
+      setIsLoading(false);
     }
-
-    toast.success(messages.LOGIN.SUCCESS);
-
-    setCookie({
-      key: tokens.ACCESS_TOKEN,
-      value: response.data.accessToken,
-      maxAge: 60 * 60,
-      path: "/",
-    });
-
-    setCookie({
-      key: tokens.REFRESH_TOKEN,
-      value: response.data.refreshToken,
-      maxAge: 60 * 60 * 24 * 30,
-      path: "/",
-    });
-
-    navigate("/dashboard", { replace: true });
-
-    setIsLoading(false);
   };
 
   return (
