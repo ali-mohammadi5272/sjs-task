@@ -51,8 +51,8 @@ const Navbar = (): React.ReactNode => {
               <NavLink
                 key={link.id}
                 className={({ isActive }) =>
-                  `text-light font-semibold p-2
-                    ${isActive ? "text-danger" : ""}
+                  `font-semibold p-2
+                    ${isActive ? "text-danger" : "text-light"}
                   `
                 }
                 to={link.to}
