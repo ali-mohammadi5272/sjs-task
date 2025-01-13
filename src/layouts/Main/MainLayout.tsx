@@ -15,22 +15,27 @@ const MainLayout = (): React.ReactNode => {
   const { setIsLoading } = useContext(LoadingContext);
 
   const getUser = async () => {
-    const accessToken: string = getCookie(tokens.ACCESS_TOKEN);
-    setIsLoading(true);
-    try {
-      const response = await axios.get<UserType>("/user/me", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        withCredentials: true,
-      });
-      if (response.status === 200) {
-        setUser(response.data);
+    const accessToken: string | null = getCookie(tokens.ACCESS_TOKEN);
+    const refreshToken: string | null = getCookie(tokens.REFRESH_TOKEN);
+
+    if (accessToken && refreshToken) {
+      setIsLoading(true);
+
+      try {
+        const response = await axios.get<UserType>("/user/me", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          withCredentials: true,
+        });
+        if (response.status === 200) {
+          setUser(response.data);
+        }
+      } catch (error) {
+        toast.error(messages.LOGIN.ERR);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      toast.error(messages.LOGIN.ERR);
-    } finally {
-      setIsLoading(false);
     }
   };
 
