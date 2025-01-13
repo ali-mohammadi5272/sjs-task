@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { RatePropsType } from "./rate.type";
 
 const Rate: React.FC<RatePropsType> = ({ rate }): React.ReactNode => {
@@ -25,4 +26,4 @@ const Rate: React.FC<RatePropsType> = ({ rate }): React.ReactNode => {
   );
 };
 
-export default Rate;
+export default memo(Rate);
