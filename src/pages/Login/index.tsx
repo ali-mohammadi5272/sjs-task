@@ -8,8 +8,10 @@ const LoginPage = (): React.ReactNode => {
   return (
     <main>
       <Container>
-        <h1 className="text-center text-5xl font-bold py-6">Login</h1>
-        <LoginForm />
+        <div className="h-screen flex justify-center items-center flex-col">
+          <h1 className="text-center text-5xl font-bold py-6">Login</h1>
+          <LoginForm />
+        </div>
       </Container>
     </main>
   );
