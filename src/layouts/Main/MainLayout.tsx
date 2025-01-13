@@ -16,7 +16,9 @@ const MainLayout = (): React.ReactNode => {
 
   const getUser = async () => {
     const accessToken: string = getCookie(tokens.ACCESS_TOKEN);
+
     setIsLoading(true);
+
     try {
       const response = await axios.get<UserType>("/user/me", {
         headers: {
