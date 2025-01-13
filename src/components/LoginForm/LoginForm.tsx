@@ -62,8 +62,12 @@ const LoginForm = (): React.ReactNode => {
   };
 
   return (
-    <>
-      <form action="" className="space-y-6" onSubmit={formSubmitHandler}>
+    <div className="w-full">
+      <form
+        action=""
+        className="space-y-6 sm:w-2/3 md:w-1/2 m-auto"
+        onSubmit={formSubmitHandler}
+      >
         <CustomInput
           id={userNameInputId}
           type="text"
@@ -93,7 +97,7 @@ const LoginForm = (): React.ReactNode => {
           Sign up
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 
