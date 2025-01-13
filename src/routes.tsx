@@ -7,6 +7,7 @@ import HomePage from "./pages/Home";
 import DashboardPage from "./pages/Dashboard";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import NotFoundPage from "./pages/NotFound";
 
 const routes: RouteObject[] = [
   {
@@ -42,6 +43,10 @@ const routes: RouteObject[] = [
         element: <DashboardPage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ];
 
