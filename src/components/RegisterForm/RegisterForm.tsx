@@ -9,8 +9,8 @@ const RegisterForm = (): React.ReactNode => {
   const passwordInputId = useId();
 
   return (
-    <>
-      <form action="" className="space-y-6">
+    <div className="w-full">
+      <form action="" className="space-y-6 sm:w-2/3 md:w-1/2 m-auto">
         <CustomInput
           id={nameInputId}
           label="Name"
@@ -44,7 +44,7 @@ const RegisterForm = (): React.ReactNode => {
           Log in
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 
