@@ -2,7 +2,7 @@ import Swal, { SweetAlertResult } from "sweetalert2";
 import { CookieType } from "../types/cookie";
 import { tokens } from "./constants";
 import { NavigateFunction } from "react-router-dom";
-import { SweetAlertType } from "../types/sweetalert";
+import { SweetAlertType } from "../types/sweetAlert";
 
 const setCookie = (cookie: CookieType) => {
   const { key, value, maxAge, path } = cookie;
