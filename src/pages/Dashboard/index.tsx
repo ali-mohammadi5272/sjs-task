@@ -1,7 +1,10 @@
 import Container from "../../components/Container/Container";
 import Products from "../../components/Products/Products";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const DashboardPage = (): React.ReactNode => {
+  usePageTitle("Dashboard");
+
   return (
     <main>
       <Container>
