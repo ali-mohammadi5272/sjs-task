@@ -1,4 +1,4 @@
-import { useContext, useId, useState } from "react";
+import { memo, useContext, useId, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
@@ -101,4 +101,4 @@ const LoginForm = (): React.ReactNode => {
   );
 };
 
-export default LoginForm;
+export default memo(LoginForm);
