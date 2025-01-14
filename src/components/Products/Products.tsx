@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { LoadingContext } from "../../contexts/LoadingProvider/LoadingProvider";
 import { ProductType } from "../../models/product";
 import { messages } from "../../utils/constants";
@@ -21,8 +21,7 @@ const Products = (): React.ReactNode => {
     (entries, ob) => {
       if (totalProducts && totalProducts === products.length) {
         ob.disconnect();
-      }
-      else if (entries[0].isIntersecting) {
+      } else if (entries[0].isIntersecting) {
         ob.disconnect();
         setSkip((prev) => prev + limit);
       }
@@ -96,4 +95,4 @@ const Products = (): React.ReactNode => {
   );
 };
 
-export default Products;
+export default memo(Products);
