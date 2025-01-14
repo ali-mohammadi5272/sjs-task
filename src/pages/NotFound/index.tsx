@@ -6,11 +6,9 @@ const NotFoundPage = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <div className="space-y-10">
-        <div>
-          <img src="https://i.postimg.cc/2yrFyxKv/giphy.gif" alt="gif_ing" />
-        </div>
+      <section>
         <div className="text-center">
+          <h3 className="text-9xl mb-10">404</h3>
           <h1 className="font-bold text-3xl">Page not Found</h1>
           <p className="my-5">
             Maybe the page you're looking for is not found or never existed.
@@ -22,7 +20,7 @@ const NotFoundPage = () => {
             Login
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
