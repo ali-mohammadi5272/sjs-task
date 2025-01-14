@@ -7,12 +7,12 @@ import "./assets/styles/main.scss";
 import LoadingProvider from "./contexts/LoadingProvider/LoadingProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+  // <StrictMode>
     <BrowserRouter>
       <LoadingProvider>
         <App />
       </LoadingProvider>
       <ToastContainer />
     </BrowserRouter>
-  </StrictMode>
+  // </StrictMode>
 );
