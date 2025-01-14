@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { CustomButtonPropsType } from "./customButton.type";
 
 const CustomButton: React.FC<CustomButtonPropsType> = ({
@@ -17,4 +18,4 @@ const CustomButton: React.FC<CustomButtonPropsType> = ({
   );
 };
 
-export default CustomButton;
+export default memo(CustomButton);
