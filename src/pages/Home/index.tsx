@@ -1,6 +1,9 @@
 import Container from "../../components/Container/Container";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const HomePage = (): React.ReactNode => {
+  usePageTitle("Home");
+
   return (
     <main>
       <Container>
