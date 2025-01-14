@@ -1,17 +1,18 @@
 import { forwardRef, memo } from "react";
-import Rate from "../Rate/Rate";
 import { ProductCardPropsType } from "./productCard.type";
+import Rate from "../Rate/Rate";
 
-// const ProductCard: React.FC<ProductCardPropsType> = ({
 const ProductCard = forwardRef<HTMLElement, ProductCardPropsType>(
-  ({ price, rating, title, description }, ref) => {
+  ({ id, price, rating, title, description }, ref) => {
     return (
       <article
         className="px-2 shadow-lg hover:bg-slate-50 cursor-pointer flex flex-col"
         ref={ref}
       >
         <header>
-          <h3 className="text-center font-semibold">{title}</h3>
+          <h3 className="text-center font-semibold">
+            #{id} &nbsp; {title}
+          </h3>
         </header>
         <div className="py-2 max-h-30 overflow-auto flex-grow">
           <p className="text-gray-600 text-justify">{description}</p>
