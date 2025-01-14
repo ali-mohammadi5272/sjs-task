@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { GetProductsResponseType } from "./products.type";
 import axios from "../../services/axios";
 import ProductCard from "../ProductCard/ProductCard";
+import NoContent from "../NoContent/NoContent";
 
 const Products = (): React.ReactNode => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -83,9 +84,15 @@ const Products = (): React.ReactNode => {
   }, [products]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-      {memoProducts}
-    </div>
+    <>
+      {memoProducts.length && false ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {memoProducts}
+        </div>
+      ) : (
+        <NoContent />
+      )}
+    </>
   );
 };
 
