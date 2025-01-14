@@ -63,7 +63,9 @@ const Products = (): React.ReactNode => {
   }, [limit, skip]);
 
   useEffect(() => {
-    observHandler();
+    if (products.length) {
+      observHandler();
+    }
 
     return () => {
       observer.disconnect();
