@@ -1,6 +1,6 @@
 import Swal, { SweetAlertResult } from "sweetalert2";
 import { CookieType } from "../types/cookie";
-import { tokens } from "./constants";
+import { messages, tokens } from "./constants";
 import { NavigateFunction } from "react-router-dom";
 import { SweetAlertType } from "../types/sweetAlert";
 
@@ -45,4 +45,23 @@ const showAlert = ({
   });
 };
 
-export { setCookie, getCookie, removeCookie, logout, showAlert };
+const sessionExpireLogout = () => {
+  removeCookie(tokens.ACCESS_TOKEN);
+  removeCookie(tokens.REFRESH_TOKEN);
+  showAlert({
+    title: "Session expired",
+    text: messages.LOGOUT.SESSION_EXPIRE,
+    icon: "error",
+  }).then(() => {
+    window.location.href = "/auth/login";
+  });
+};
+
+export {
+  setCookie,
+  getCookie,
+  removeCookie,
+  logout,
+  showAlert,
+  sessionExpireLogout,
+};
