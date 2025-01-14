@@ -9,16 +9,24 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const Products = (): React.ReactNode => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [limit, setLimit] = useState<number>(16);
+  const [skip, setSkip] = useState<number>(0);
+  const [totalProducts, setTotalProducts] = useState<number>(0);
   const { setIsLoading } = useContext(LoadingContext);
-  const [data, setData] = useState<string>("");
+
   const getProducts = async () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get<GetProductsResponseType>("/products");
-      console.log(response.data);
+      const response = await axios.get<GetProductsResponseType>("/products", {
+        params: {
+          limit,
+          skip,
+        },
+      });
       if (response.status === 200) {
-        setProducts(response.data.products);
+        setProducts((prev) => [...prev, ...response.data.products]);
+        setTotalProducts(response.data.total);
       }
     } catch (error) {
       toast.error(messages.LOGIN.ERR);
@@ -29,7 +37,7 @@ const Products = (): React.ReactNode => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [limit, skip]);
 
   const memoProducts = useMemo(() => {
     return products.map((product) => (
