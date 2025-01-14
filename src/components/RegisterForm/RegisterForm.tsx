@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { memo, useId } from "react";
 import { Link } from "react-router-dom";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
@@ -48,4 +48,4 @@ const RegisterForm = (): React.ReactNode => {
   );
 };
 
-export default RegisterForm;
+export default memo(RegisterForm);
