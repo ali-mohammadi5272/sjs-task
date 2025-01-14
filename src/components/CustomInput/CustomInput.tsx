@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { CustomInputPropsType } from "./customInput.type";
 
 const CustomInput: React.FC<CustomInputPropsType> = ({
@@ -29,4 +30,4 @@ const CustomInput: React.FC<CustomInputPropsType> = ({
   );
 };
 
-export default CustomInput;
+export default memo(CustomInput);
