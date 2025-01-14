@@ -3,6 +3,8 @@ import { CookieType } from "../types/cookie";
 import { messages, tokens } from "./constants";
 import { NavigateFunction } from "react-router-dom";
 import { SweetAlertType } from "../types/sweetAlert";
+import { GetAccessTokenResponseType } from "../types/axios";
+import { AxiosInstance } from "axios";
 
 const setCookie = (cookie: CookieType) => {
   const { key, value, maxAge, path } = cookie;
@@ -57,6 +59,39 @@ const sessionExpireLogout = () => {
   });
 };
 
+const getAccessToken = async (
+  axiosInstance: AxiosInstance
+): Promise<GetAccessTokenResponseType> => {
+  const refreshToken: string | null = getCookie(tokens.REFRESH_TOKEN);
+  if (!refreshToken) {
+    throw new Error("No refresh token available");
+  }
+  const response = await axiosInstance.post<GetAccessTokenResponseType>(
+    "/auth/refresh",
+    {
+      refreshToken,
+    }
+  );
+
+  if (response.status === 200) {
+    setCookie({
+      key: tokens.ACCESS_TOKEN,
+      value: response.data.accessToken,
+      maxAge: 60 * 60 * 24 * 30,
+      path: "/",
+    });
+
+    setCookie({
+      key: tokens.REFRESH_TOKEN,
+      value: response.data.refreshToken,
+      maxAge: 60 * 60 * 24 * 30,
+      path: "/",
+    });
+    return response.data;
+  }
+  throw new Error("Unable to egt Access Token");
+};
+
 export {
   setCookie,
   getCookie,
@@ -64,4 +99,5 @@ export {
   logout,
   showAlert,
   sessionExpireLogout,
+  getAccessToken,
 };
