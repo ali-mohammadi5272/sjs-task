@@ -1,3 +1,4 @@
+import { memo } from "react";
 import noContentGif from "../../assets/videos/empty_state.gif";
 
 const NoContent = () => {
@@ -9,4 +10,4 @@ const NoContent = () => {
   );
 };
 
-export default NoContent;
+export default memo(NoContent);
