@@ -12,6 +12,7 @@ const messages = {
     CONFIRMATION: "Log out from App ?",
     SUCCESS: "Logged out successfully :))",
     ERR: "Internal Server Error !!",
+    SESSION_EXPIRE: "Session expired. Please log in again.",
   },
 };
 
