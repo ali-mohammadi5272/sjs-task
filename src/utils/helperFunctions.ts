@@ -12,8 +12,12 @@ const setCookie = (cookie: CookieType) => {
   document.cookie = `${key}=${value}; max-age=${maxAge}; path=${path}`;
 };
 
-const getCookie = (key: string | number): string => {
-  const cookie = document.cookie.split(`${key}=`)[1];
+const getCookie = (key: string | number): string | undefined => {
+  const cookie: string | undefined = document.cookie
+    ?.split("; ")
+    .find((item) => item.includes(`${key}`))
+    ?.split(`${key}=`)[1];
+
   return cookie;
 };
 
