@@ -15,7 +15,8 @@ const AuthLayout = (): React.ReactNode => {
   const location: Location = useLocation();
 
   useEffect(() => {
-    const refreshToken: string | null = getCookie(tokens.REFRESH_TOKEN);
+    const refreshToken: string | undefined = getCookie(tokens.REFRESH_TOKEN);
+    
     const isUserLoggedIn = !!refreshToken;
 
     if (isUserLoggedIn) {
