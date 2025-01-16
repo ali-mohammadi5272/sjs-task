@@ -15,7 +15,7 @@ const MainLayout = (): React.ReactNode => {
   const { setIsLoading } = useContext(LoadingContext);
 
   const getUser = async () => {
-    const accessToken: string = getCookie(tokens.ACCESS_TOKEN);
+    const accessToken: string | undefined = getCookie(tokens.ACCESS_TOKEN);
 
     setIsLoading(true);
 
@@ -24,7 +24,6 @@ const MainLayout = (): React.ReactNode => {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-        withCredentials: true,
       });
       if (response.status === 200) {
         setUser(response.data);
