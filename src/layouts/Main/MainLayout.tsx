@@ -20,7 +20,7 @@ const MainLayout = (): React.ReactNode => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get<UserType>("/user/me", {
+      const response = await axios.get<UserType>("/auth/me", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
