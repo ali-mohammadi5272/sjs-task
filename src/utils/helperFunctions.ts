@@ -66,10 +66,12 @@ const sessionExpireLogout = () => {
 const getAccessToken = async (
   axiosInstance: AxiosInstance
 ): Promise<GetAccessTokenResponseType> => {
-  const refreshToken: string | null = getCookie(tokens.REFRESH_TOKEN);
+  const refreshToken: string | undefined = getCookie(tokens.REFRESH_TOKEN);
+
   if (!refreshToken) {
     throw new Error("No refresh token available");
   }
+
   const response = await axiosInstance.post<GetAccessTokenResponseType>(
     "/auth/refresh",
     {
